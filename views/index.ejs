@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='css/bui.css' />
+    <link rel="stylesheet" href="font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- <h1><%= title %></h1>-->
+
+    <div id="bui-router"></div>
+
+    <script src="js/zepto.js"></script>
+    <script src="js/plugins/marked.min.js"></script>
+    <script src="js/plugins/mathjax/tex-chtml.min.js"></script>
+    <script src="js/bui.js"></script>
+    <script>
+
+      var title = `<%= title %>`;
+
+      window.router = bui.router();
+      
+      bui.ready(function () {
+
+          window.viewport = bui.viewport(60)
+      
+          router.init({
+              id: "#bui-router",
+              progress: true,
+              indexModule:{
+                template:"pages/main/main.html",
+                script:"pages/main/main.js",
+              },
+              // 动画优先
+              // firstAnimate: true,
+              // webapp部署的时候改为true, 这样物理刷新缓存还在
+          })
+      
+      })
+    </script>
+  </body>
+</html>
+
+
